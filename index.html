@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <title>葉采峰的個人履歷</title>
+  <style>
+    /* === 全域設定 === */
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body {
+      height: 100%;
+      margin: 0;
+      overflow: hidden; /* 不允許滾動 */
+      font-family: "Microsoft JhengHei", "Noto Sans TC", sans-serif;
+      background: url("background.jpg") no-repeat center center fixed;
+      background-size: cover;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    /* === email圖示 === */
+    .fa-envelope {
+      margin-right: 6px;
+      color: #d4bda1; /* 與紫色主題協調 */
+      font-size: 0.9em;   /* ← 稍微縮小 */
+      vertical-align: middle;  /* 與文字對齊 */
+      display: inline-block;
+    }
+    .email-line {
+      display: flex;
+      align-items: center;
+      gap: 2px; /* icon 與文字的距離 */
+      white-space: nowrap; /* 不允許換行 */
+    }
+    .email-line i {
+      position: relative;
+      top: 1.8px; /* 往下微調1~2px*/
+    }
+    .email-line a {
+      color: #fafafc;
+      text-decoration: none;
+    }
+    .email-line a:hover {
+      text-decoration: underline;
+    }
+
+
+    /* === 履歷紙容器 === */
+    .resume-container {
+      width: 70vw; /* 紙張寬度 */
+      max-width: 900px;
+      height: 90vh; /* 保留上下留白 */
+      background: url("background2.jpg") no-repeat center center;
+      background-size: cover;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+      border-radius: 8px;
+      display: flex;
+      flex-direction: row;
+      overflow: hidden; /* 防止文字超出紙邊 */
+    }
+
+    /* === 左右區塊 === */
+    .left {
+      width: 30%; /* 深紫區比例 */
+      background: rgba(0,0,0,0); /* 背景已由圖檔提供 */
+      color: #fafafc;
+      padding: 3% 4%;
+      overflow-y: auto; /* 若文字過多可滾動（僅限此區） */
+    }
+
+    .right {
+      width: 70%;
+      background: rgba(255,255,255,0);
+      color: #0c0c0c;
+      padding: 4% 5%;
+      overflow-y: auto;
+    }
+
+    /* === 字體樣式 === */
+    h1 {
+      color: #d4bda1;
+      font-size: 2rem;
+      margin: 0 0 0.5rem 0;
+      line-height: 1.2;
+    }
+
+    h2 {
+      color: #d4bda1;
+      font-size: 1.2rem;
+      margin: 1.2rem 0 0.2rem 0;
+    }
+
+    h3 {
+      color: #fafafc;
+      font-size: 1rem;
+      margin: 0.3rem 0;
+    }
+
+    p {
+      font-size: 0.95rem;
+      line-height: 1.6;
+      margin: 0.2rem 0;
+    }
+
+    ul {
+      margin: 0.4rem 0 0.8rem 1.1rem;
+      padding: 0;
+      line-height: 1.4;
+      font-size: 0.75rem;
+    }
+
+    .right h2{
+      color: #4a43df;
+      margin-top: 1rem;
+    }
+    .right h3{
+      color: #0c0c0c;
+    }
+    .right p{
+      color: #4a43df;
+      margin-top: 0.1rem;
+      font-size: 0.75rem;
+    }
+    .right ul{
+      margin-top: 0.1rem;
+    }
+
+    .right hr {
+      border: none;
+      border-top: 1px solid #000;
+      margin: 0.4rem 0;
+    }
+
+    .left hr {
+      border: none;
+      border-top: 1px solid #fafafc;
+      margin: 0.4rem 0;
+    }
+    
+    /* 大頭照 */
+    .photo {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 1.2rem; /* 與名字間距 */
+}
+    .photo img {
+      width: 140px;     /* 可依實際需求調整大小 */
+      height: 140px;
+      object-fit: cover; /* 讓照片保持比例但裁切成圓 */
+      border-radius: 50%; /* 這行讓它變圓形 */
+      border: 3px solid #fafafc; /* 外框顏色（可改成深紫或白） */
+      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+}
+    .photo img {
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+    /* 響應式縮放 */
+    @media (max-width: 900px) {
+      .resume-container { width: 85vw; height: 92vh; }
+      h1 { font-size: 1.6rem; }
+    }
+
+    @media (max-width: 600px) {
+      .resume-container {
+        flex-direction: column;
+        width: 90vw;
+        height: 95vh;
+      }
+      .left, .right { width: 100%; height: 50%; }
+    }
+  </style>
+</head>
+<body>
+  <div class="resume-container">
+    <!-- 左半（深紫區） -->
+    <div class="left">
+      <div class="photo">
+      <img src="headshotglasses.jpg" alt="個人照片">
+      </div>
+      <div class="name">
+        <h1>葉采峰<br>Joe Yeh</h1>
+        <p>1999.09</p>
+        <p class="email-line">
+        <i class="fa-solid fa-envelope"></i>
+        <a href="mailto:karta3599953@gmail.com">karta3599953@gmail.com</a></p>
+        <!-- email可以點擊 -->
+      </div>
+
+      <div class="school">
+        <h2>學歷</h2>
+        <hr>
+        <h3>國立彰化師範大學<br>電機工程系</h3>
+        <p>2019.09 ~ 2024.06</p>
+        <ul>
+          <li>RFID應用、程式語言(C/C++)、智慧感測與資料探勘…等課程</li>
+          <li>電子、電路技術、邏輯設計技術、微處理機技術(MCU)…等課程</li>
+        </ul>
+
+        <h2>技能</h2>
+        <hr>
+        <h3>程式設計</h3>
+        <ul>
+          <li>基礎C/C++</li>
+          <li>基礎html\css</li>
+        </ul>
+        <h3>報表製作</h3>
+        <ul>
+          <li>基本PowerPoint、Word能力</li>
+          <li>Excel基本函數設定、圖表繪製、樞紐分析表</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- 右半（白區） -->
+    <div class="right">
+      <div class="personal">
+        <h2>摘要</h2>
+        <hr>
+        <p><span style="color:rgb(17, 17, 17);">
+          &emsp;我擅長團隊合作與溝通協調，具備基本的領導與規劃能力。曾在社團活動中與外校團隊合作，學習不同團隊運作方式的優缺點，
+          並在活動突發狀況處理中累積了臨場應變與問題解決的經驗。在專題過程中，學習如何正確查找技術資料、分析除錯問題與整理開發步驟等。
+        </span></p>
+        <p><span style="color:rgb(17, 17, 17);">
+          &emsp;在學期間學習並具備基礎的硬體電路與程式開發能力。在專題當中主要設計智慧產品相關，從中培養了對系統整合與韌體開發的實務基本理解與個人獨立作業能力。
+          樂於學習新事物，能適應出差或輪班等不同挑戰，保持一定的學習力與職涯競爭力。未來期望能進入半導體產業，持續累積實務經驗並學習新平台與技術。
+        </span></p>
+      </div>
+
+      <div class="experience">
+        <h2>學經歷</h2>
+        <hr>
+        <h3>專題製作</h3>
+        <p>Arduino即時偵測安全防盜門鎖</p>
+        <ul>
+          <li>使用LCD、掃描鍵盤、電源電鎖電路、ESP8266與Android手機APP inventor程式設計等工具</li>
+          <li>實現使用掃描鍵盤與手機APP遠端解鎖與重設密碼，具備偵測開啟回傳警告email功能</li>
+          <li>使用PCB板做基底並手工自製木門模型</li>
+        </ul>
+        <h3>直排輪教練</h3>
+        <p>飛馬直排輪團隊</p>
+        <ul>
+          <li>每月依整體學員程度與特性調整當週教學內容或個人指導部份，具備溝通與臨場應變能力</li>
+          <li>每節課獨自或團隊指導10到25名幼兒園至國小學童基礎滑行技巧並確保教學安全與成效</li>
+          <li>具備積極負責、團隊協調的工作態度與家長及孩童的人際互動</li>
+        </ul>
+        <h3>在校社團幹部|極限滑輪社</h3>
+        <p>教學長</p>
+        <ul>
+          <li>參與及鼓勵社員參加全國會長盃、總統盃等競賽</li>
+          <li>培養領導、組織、經驗傳承與問題解決能力</li>
+          <li>規劃年度社團活動與學習計畫</li>
+          <li>具備成員協調與對外溝通經驗</li>
+          <li>兩年社團評鑑特優等成績</li>
+        </ul>
+      </div>
+
+      <div class="personality">
+        <h2>性格特點</h2>
+        <hr>
+        <ul>
+          <li>保持學習力</li>
+          <li>擅於溝通</li>
+          <li>有耐心</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
+
+
+
+
