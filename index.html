@@ -161,55 +161,58 @@
       h1 { font-size: 1.6rem; }
     }
 
-    @media (max-width: 600px) {
-      .resume-container {
-        flex-direction: column;
-        width: 90vw;
-        height: 95vh;
-      }
-      .left, .right { width: 100%; height: 50%; }
-      
+    /* === 手機版（600px 以下）=== */
 @media (max-width: 600px) {
 
+  /* 整體允許捲動 */
   html, body {
-    height: auto;                 /* 高度改為自動 */
-    overflow-x: hidden;           /* 避免橫向捲動 */
-    overflow-y: auto;             /* 允許上下捲動 */
+    height: auto;
+    overflow-x: hidden;
+    overflow-y: auto;
   }
 
+  /* 簡歷主容器改為直向排列 */
   .resume-container {
-    height: auto;                 /* 高度改自動 */
-    min-height: 100vh;            /* 至少跟螢幕一樣高 */
-    overflow: visible;            /* 讓內容自由延伸 */
+    flex-direction: column;
+    width: 90vw;
+    height: auto;
+    min-height: 100vh;
+    overflow: visible;
+  }
+
+  /* 左/右欄改為全寬，自動高度 */
+  .left, .right {
+    width: 100%;
+    height: auto;
   }
 
   .left {
-    height: auto;                 /* ★關鍵：讓左欄高度自動跟內容走 */
-    min-height: 100%;             
-    background-size: cover;       /* 背景跟著擴張 */
-    padding: 20px 10px;           /* 手機縮小 padding */
+    padding: 20px 10px;
+    background-size: cover;
   }
 
   .right {
-    height: auto;                 /* 右欄也不固定高度 */
-    min-height: 100%;
     padding: 20px 15px;
   }
 
+  /* 大頭貼縮小 */
   .photo img {
     width: 90px;
     height: 90px;
   }
 
+  /* 字體縮放 */
   h1 { font-size: 1.4rem; }
   p, li { font-size: 0.8rem; }
-  
-   /* 左側整體黑色 */
+
+  /* --- 你指定的顏色邏輯 --- */
+
+  /* 左側預設黑色 */
   .left {
     color: black !important;
   }
 
-  /* h1 / h2 / h3 保留原本的淺咖啡色 */
+  /* h1 h2 h3 維持淺咖啡色 */
   .left h1,
   .left h2,
   .left h3 {
@@ -217,23 +220,21 @@
   }
 
   /* email 文字變黑 */
-  .email-text {
+  .email-line a {
     color: black !important;
   }
 
-  /* email icon 保留原本顏色 */
-  .email-text i,
-  .email-text svg {
+  /* icon 保留淺咖啡色 */
+  .email-line i {
     color: #d4bda1 !important;
     fill: #d4bda1 !important;
   }
 
-  /* 修正HR顏色border-color */
+  /* 左側 HR 顏色 */
   .left hr {
     border-color: #d4bda1 !important;
     background-color: #d4bda1 !important;
   }
-
 }
     }
   </style>
@@ -335,6 +336,7 @@
   </div>
 </body>
 </html>
+
 
 
 
