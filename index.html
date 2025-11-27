@@ -168,58 +168,42 @@
         height: 95vh;
       }
       .left, .right { width: 100%; height: 50%; }
-      /* === 手機版維持左右欄（優化版） === */
-    @media (max-width: 600px) {
+      
+@media (max-width: 600px) {
 
   html, body {
-    overflow: auto !important;
+    height: auto;                 /* 高度改為自動 */
+    overflow-x: hidden;           /* 避免橫向捲動 */
+    overflow-y: auto;             /* 允許上下捲動 */
   }
 
   .resume-container {
-    width: 95vw;
-    height: auto;              /* 不限制高度 */
-    flex-direction: row;       /* 維持左右欄 */
-    overflow: auto;            /* 手機可捲動 */
+    height: auto;                 /* 高度改自動 */
+    min-height: 100vh;            /* 至少跟螢幕一樣高 */
+    overflow: visible;            /* 讓內容自由延伸 */
   }
 
   .left {
-    width: 35%;                /* 左欄略縮小 */
-    padding: 5% 3%;
+    height: auto;                 /* ★關鍵：讓左欄高度自動跟內容走 */
+    min-height: 100%;             
+    background-size: cover;       /* 背景跟著擴張 */
+    padding: 20px 10px;           /* 手機縮小 padding */
   }
 
   .right {
-    width: 65%;                /* 右欄略放大 */
-    padding: 5% 4%;
+    height: auto;                 /* 右欄也不固定高度 */
+    min-height: 100%;
+    padding: 20px 15px;
   }
 
-  /* 讓照片縮小，不會擠壓版面 */
   .photo img {
     width: 90px;
     height: 90px;
   }
 
-  /* 字體縮小一級，避免換行爆版 */
-  h1 {
-    font-size: 1.3rem;
-  }
+  h1 { font-size: 1.4rem; }
+  p, li { font-size: 0.8rem; }
 
-  p, li {
-    font-size: 0.75rem;
-  }
-
-  /* email 行維持水平排列 */
-  .email-line {
-    display: flex;
-    align-items: center;
-    gap: 5px;
-    white-space: nowrap;
-  }
-
-  .email-line i {
-    font-size: 0.9em;
-    top: 1px;
-    position: relative;
-  }
 }
     }
   </style>
@@ -321,6 +305,7 @@
   </div>
 </body>
 </html>
+
 
 
 
