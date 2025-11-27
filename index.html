@@ -168,6 +168,59 @@
         height: 95vh;
       }
       .left, .right { width: 100%; height: 50%; }
+      /* === 手機版維持左右欄（優化版） === */
+    @media (max-width: 600px) {
+
+  html, body {
+    overflow: auto !important;
+  }
+
+  .resume-container {
+    width: 95vw;
+    height: auto;              /* 不限制高度 */
+    flex-direction: row;       /* 維持左右欄 */
+    overflow: auto;            /* 手機可捲動 */
+  }
+
+  .left {
+    width: 35%;                /* 左欄略縮小 */
+    padding: 5% 3%;
+  }
+
+  .right {
+    width: 65%;                /* 右欄略放大 */
+    padding: 5% 4%;
+  }
+
+  /* 讓照片縮小，不會擠壓版面 */
+  .photo img {
+    width: 90px;
+    height: 90px;
+  }
+
+  /* 字體縮小一級，避免換行爆版 */
+  h1 {
+    font-size: 1.3rem;
+  }
+
+  p, li {
+    font-size: 0.75rem;
+  }
+
+  /* email 行維持水平排列 */
+  .email-line {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    white-space: nowrap;
+  }
+
+  .email-line i {
+    font-size: 0.9em;
+    top: 1px;
+    position: relative;
+  }
+}
     }
   </style>
 </head>
@@ -268,6 +321,7 @@
   </div>
 </body>
 </html>
+
 
 
 
