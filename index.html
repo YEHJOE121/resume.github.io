@@ -203,25 +203,35 @@
 
   h1 { font-size: 1.4rem; }
   p, li { font-size: 0.8rem; }
-  /* 左欄其他文字全部改黑 */
-  .left .email-text,
+  
+   /* 左側整體黑色 */
   .left {
-    color: black;
+    color: black !important;
   }
 
-  /* 左欄 h1、h2、h3、hr 保持原本顏色 */
-  .left hr,
+  /* h1 / h2 / h3 保留原本的淺咖啡色 */
   .left h1,
   .left h2,
   .left h3 {
-    color: #d4bda1; /* ← 換成原本顏色 */
+    color: #d4bda1 !important;
   }
 
-  /* 左欄 email 與 icon 保持原本顏色 */
-  .left .email-text i,
-  .left .email-text svg {
-    color: #ffffff; /* ← 換成原本顏色 */
-    fill: #ffffff;
+  /* email 文字變黑 */
+  .email-text {
+    color: black !important;
+  }
+
+  /* email icon 保留原本顏色 */
+  .email-text i,
+  .email-text svg {
+    color: #d4bda1 !important;
+    fill: #d4bda1 !important;
+  }
+
+  /* 修正HR顏色border-color */
+  .left hr {
+    border-color: #d4bda1 !important;
+    background-color: #d4bda1 !important;
   }
 
 }
@@ -325,6 +335,7 @@
   </div>
 </body>
 </html>
+
 
 
 
